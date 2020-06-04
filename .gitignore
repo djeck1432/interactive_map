@@ -1,0 +1,8 @@
+*venv
+*idea
+*config
+*.DS_Store
+*__pycache__/
+*.env
+*chat_messages
+*.logs
