@@ -6,3 +6,4 @@
 *.env
 *chat_messages
 *.logs
+*media

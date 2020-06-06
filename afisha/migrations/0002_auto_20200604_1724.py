@@ -13,13 +13,13 @@ class Migration(migrations.Migration):
     operations = [
         migrations.RemoveField(
             model_name='places',
-            name='images',
+            name='image',
         ),
         migrations.CreateModel(
             name='PlaceImages',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('images', models.ImageField(upload_to='', verbose_name='Изображения')),
+                ('image', models.ImageField(upload_to='', verbose_name='Изображения')),
                 ('place', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='image', to='afisha.Places', verbose_name='Место')),
             ],
         ),
