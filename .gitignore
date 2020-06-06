@@ -7,3 +7,4 @@
 *chat_messages
 *.logs
 *media
+*db.sqlite3
