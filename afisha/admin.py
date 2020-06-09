@@ -3,7 +3,7 @@ import csv
 from django.contrib import admin
 from django.http import HttpResponse
 
-from .models import Places, PlaceImages
+from .models import Place, PlaceImage
 from django.utils.safestring import mark_safe
 from adminsortable2.admin import SortableInlineAdminMixin
 
@@ -28,7 +28,7 @@ class ExportCsvMixin:
     export_as_csv.short_description = "Export Selected"
 
 class InlinePlaceImages(SortableInlineAdminMixin,admin.TabularInline):
-    model = PlaceImages
+    model = PlaceImage
     list_display_links = None
     list_display = ['position']
     fields = ('position','image', 'get_preview_image', )
@@ -44,7 +44,7 @@ class InlinePlaceImages(SortableInlineAdminMixin,admin.TabularInline):
         )
 
 
-@admin.register(PlaceImages)
+@admin.register(PlaceImage)
 class PlaceImagesAmdin(admin.ModelAdmin,ExportCsvMixin):
     list_display = ['position']
     readonly_fields = ['get_preview_image']
@@ -58,7 +58,7 @@ class PlaceImagesAmdin(admin.ModelAdmin,ExportCsvMixin):
         )
 
 
-@admin.register(Places)
+@admin.register(Place)
 class PlacesAdmin(admin.ModelAdmin):
     inlines = [
         InlinePlaceImages,
