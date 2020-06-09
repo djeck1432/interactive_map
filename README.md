@@ -28,7 +28,7 @@ python3 manage.py migrate
 ```bash
 python3 manage.py createsuperuser
 ```
-- Загрузите локации в формате `json` следующей командой : 
+- Загрузите локации в формате `json` следующей командой: 
 ```bash 
 python3 manage.py load_place [url]
 ```
