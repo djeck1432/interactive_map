@@ -24,7 +24,7 @@ cd [name of project].pythonanywhere.com
 
 python3 manage.py migrate
 ```
-- Создайте акк для админ панель:
+- Создайте акк для админ панели:
 ```bash
 python3 manage.py createsuperuser
 ```
