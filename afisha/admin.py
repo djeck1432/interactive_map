@@ -8,7 +8,6 @@ from django.utils.safestring import mark_safe
 from adminsortable2.admin import SortableInlineAdminMixin
 
 
-
 class ExportCsvMixin:
     def export_as_csv(self, request, queryset):
 
@@ -36,6 +35,7 @@ class InlinePlaceImages(SortableInlineAdminMixin,admin.TabularInline):
     extra = 1
 
     def get_preview_image(self, obj):
+        print(obj.image)
         return mark_safe('<img src="/media/{url}" width="{width}" height={height} />'.format(
             url=obj.image,
             width=400,
@@ -50,12 +50,14 @@ class PlaceImagesAmdin(admin.ModelAdmin,ExportCsvMixin):
     readonly_fields = ['get_preview_image']
 
     def get_preview_image(self, obj):
+        print(obj.image)
         return mark_safe('<img src="/media/{url}" width="{width}" height={height} />'.format(
             url=obj.image,
             width=400,
             height=200,
         )
         )
+
 
 
 @admin.register(Place)

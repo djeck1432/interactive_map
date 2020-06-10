@@ -18,7 +18,7 @@ class Command(BaseCommand):
         for num, url in enumerate(urls):
             response = requests.get(url)
             response_image = BytesIO(response.content)
-            new_image_object = place.place_image.create(place=place,position=num)
+            new_image_object = place.place_images.create(place=place,position=num)
             new_image_object.image.save(f'{image_name}_{num}', response_image, save=True)
 
 
