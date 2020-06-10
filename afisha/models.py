@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib import admin
 from tinymce.models import HTMLField
 
-class Place(models.Model): #FIXME
+class Place(models.Model):
     title = models.CharField('Название места',max_length=150)
     description_short = models.TextField('Краткое описание')
     description_long = HTMLField('Длинное описание')
@@ -23,7 +23,7 @@ def get_image_position():
     return extra_position
 
 
-class PlaceImage(models.Model):  #FIXME
+class PlaceImage(models.Model):
     place = models.ForeignKey(
                                 Place, on_delete=models.CASCADE,
                                 verbose_name='Место',
