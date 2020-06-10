@@ -40,7 +40,6 @@ def place_detail_view(request,place_id):
             'lat':place.lat,
         }
     }
-    return HttpResponse(json.dumps(place_description, indent=6,ensure_ascii=False),
-                 content_type="application/json")
+    return JsonResponse(place_description, safe=False)
 
 
