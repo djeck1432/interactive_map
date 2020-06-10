@@ -10,3 +10,6 @@
 *db.sqlite3
 *.pyc
 *.json
+*screenshots
+*README.md
+*places
