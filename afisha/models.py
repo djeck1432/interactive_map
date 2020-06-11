@@ -18,18 +18,13 @@ class Place(models.Model):
         verbose_name_plural = 'Места'
 
 
-def get_image_position():
-    extra_position = admin.TabularInline.extra + 1
-    return extra_position
-
-
 class PlaceImage(models.Model):
     place = models.ForeignKey(
                                 Place, on_delete=models.CASCADE,
                                 verbose_name='Место',
                                 related_name='place_images')
-    image = models.ImageField('Изображение', )
-    position = models.IntegerField('Позиция',default=get_image_position)
+    image = models.ImageField('Изображение', blank=True)
+    position = models.PositiveIntegerField('Позиция',default=0)
 
     class Meta:
         ordering = ['position']

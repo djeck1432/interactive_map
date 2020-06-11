@@ -7,7 +7,7 @@ from .models import Place, PlaceImage
 from django.utils.safestring import mark_safe
 from adminsortable2.admin import SortableInlineAdminMixin
 
-
+#
 class ExportCsvMixin:
     def export_as_csv(self, request, queryset):
 
@@ -32,13 +32,11 @@ class InlinePlaceImages(SortableInlineAdminMixin,admin.TabularInline):
     list_display = ['position']
     fields = ('position','image', 'get_preview_image', )
     readonly_fields = ['get_preview_image']
-    extra = 1
+    extra = admin.TabularInline.extra
 
     def get_preview_image(self, obj):
-        print(obj.image)
-        return mark_safe('<img src="/media/{url}" width="{width}" height={height} />'.format(
+        return mark_safe('<img src="/media/{url}" height={height} />'.format(
             url=obj.image,
-            width=400,
             height=200,
         )
         )
@@ -46,14 +44,14 @@ class InlinePlaceImages(SortableInlineAdminMixin,admin.TabularInline):
 
 @admin.register(PlaceImage)
 class PlaceImagesAmdin(admin.ModelAdmin,ExportCsvMixin):
-    list_display = ['position']
+    list_display = ['place','position']
     readonly_fields = ['get_preview_image']
+    list_filter = ['place']
+    extra = 1
 
     def get_preview_image(self, obj):
-        print(obj.image)
-        return mark_safe('<img src="/media/{url}" width="{width}" height={height} />'.format(
+        return mark_safe('<img src="/media/{url}" height={height} />'.format(
             url=obj.image,
-            width=400,
             height=200,
         )
         )
