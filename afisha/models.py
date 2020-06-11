@@ -17,6 +17,9 @@ class Place(models.Model):
         verbose_name = 'Место'
         verbose_name_plural = 'Места'
 
+def get_image_position():
+    extra = admin.TabularInline.extra
+    print(extra)
 
 class PlaceImage(models.Model):
     place = models.ForeignKey(
