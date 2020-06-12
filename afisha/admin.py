@@ -37,12 +37,12 @@ class PlaceImagesAmdin(admin.ModelAdmin):
         )
 
 
-
 @admin.register(Place)
 class PlacesAdmin(admin.ModelAdmin):
     inlines = [
         InlinePlaceImages,
     ]
+
 
 
 
