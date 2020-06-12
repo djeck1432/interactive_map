@@ -1,8 +1,4 @@
-import csv
-
 from django.contrib import admin
-from django.http import HttpResponse
-
 from .models import Place, PlaceImage
 from django.utils.safestring import mark_safe
 from adminsortable2.admin import SortableInlineAdminMixin

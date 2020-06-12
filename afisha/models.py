@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib import admin
 from tinymce.models import HTMLField
 
 class Place(models.Model):

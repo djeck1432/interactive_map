@@ -1,6 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
 from afisha.models import Place,PlaceImage
-from PIL import Image
 from io import BytesIO
 import requests
 
