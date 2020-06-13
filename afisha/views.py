@@ -29,7 +29,7 @@ def get_places_info(request):
 
 def place_detail_view(request,place_id):
     place = get_object_or_404(Place,pk=place_id)
-    images = [place_image.image.url for place_image in place.place_images.all()]
+    images = [place_image.image.url for place_image in place.images.all()]
     place_description = {
         'title': place.title,
         'imgs':images,
