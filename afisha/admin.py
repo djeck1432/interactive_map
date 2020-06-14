@@ -12,8 +12,8 @@ class InlinePlaceImages(SortableInlineAdminMixin,admin.TabularInline):
     extra = 1
 
     def get_preview_image(self, obj):
-        return mark_safe('<img src="/media/{url}" height={height} />'.format(
-            url=obj.image,
+        return mark_safe('<img src="{url}" height="{height}" />'.format(
+            url=obj.image.url,
             height=200,
         )
         )
@@ -26,8 +26,8 @@ class PlaceImagesAmdin(admin.ModelAdmin):
     list_filter = ['place']
 
     def get_preview_image(self, obj):
-        return mark_safe('<img src="/media/{url}" height={height} />'.format(
-            url=obj.image,
+        return mark_safe('<img src="{url}" height="{height}" />'.format(
+            url=obj.image.url,
             height=200,
         )
         )
